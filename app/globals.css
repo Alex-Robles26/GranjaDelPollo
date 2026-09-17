@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-hueso text-campo-900 antialiased;
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      rgba(46, 74, 42, 0.055) 1px,
+      transparent 0
+    );
+    background-size: 22px 22px;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-titulo;
+  }
+  /* Los números de dinero alineados en columna */
+  .cifras {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+  :focus-visible {
+    outline: 2px solid #c89b5c;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .campo-input {
+    @apply w-full rounded-lg border border-trigo-300/70 bg-white px-3 py-2.5 text-[15px]
+           text-campo-900 placeholder:text-campo-700/35
+           focus:border-trigo-500 focus:outline-none focus:ring-2 focus:ring-trigo-500/25;
+  }
+  .campo-label {
+    @apply mb-1.5 block text-[13px] font-medium text-campo-800/80;
+  }
+  .btn-principal {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-campo-700 px-4 py-2.5
+           text-[15px] font-semibold text-hueso transition-colors
+           hover:bg-campo-800 active:bg-campo-900 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-oro {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-trigo-500 px-4 py-2.5
+           text-[15px] font-semibold text-tierra transition-colors
+           hover:bg-trigo-600 hover:text-white disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-suave {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-trigo-300
+           bg-white px-3.5 py-2 text-sm font-medium text-campo-800 transition-colors
+           hover:border-trigo-500 hover:bg-trigo-100/50 disabled:opacity-50;
+  }
+  .tarjeta {
+    @apply rounded-xl2 border border-trigo-300/55 bg-white shadow-carta;
+  }
+  .pildora {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+}
